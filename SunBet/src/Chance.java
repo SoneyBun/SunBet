@@ -1,13 +1,13 @@
 import java.lang.Math;
 
 public class Chance {
-    private final double  bet;
+    private final int bet;
 
-    public Chance(double bet) {
+    public Chance(int bet) {
         this.bet = bet;
     }
 
-    public double betMoney() {
+    public int betMoney() {
         int chance = (int) (Math.random() * 7);
 
         if(chance <= 2) {

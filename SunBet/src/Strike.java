@@ -12,9 +12,6 @@ public class Strike {
         if(bet > money) {
             return true;
         }
-        else if(bet < 0.01 && bet > 0) {
-            return true;
-        }
         else if(bet == 0) {
             return true;
         }

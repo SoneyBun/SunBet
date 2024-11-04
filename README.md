@@ -1,1 +1,1 @@
-Java implementation of something my friend made.
+Java implementation of a cybersecurity task. I had so much fun making this and will appreciate any type of feedback! The codeHS testing version is here. https://codehs.com/sandbox/id/sunbet-v4-testing-PYTiha/run

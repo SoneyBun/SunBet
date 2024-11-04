@@ -4,14 +4,13 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        double money = 100, bet, lossOrGainCheck;
-        int strike = 0;
+        int money = 100, bet, lossOrGainCheck, strike = 0;
         Chance chance;
         Strike numStrikes;
 
         while((money > 0 && money <= 1000000) && strike < 3) {
             System.out.println("You have $" + money + ". How much are you willing to bet?");
-            bet = scan.nextDouble();
+            bet = scan.nextInt();
 
             numStrikes = new Strike(money, bet, strike);
 

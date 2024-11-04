@@ -1,8 +1,8 @@
 public class Strike {
-    private final double money, bet;
+    private final int money, bet;
     private int strike;
 
-    public Strike(double money, double bet, int strike) {
+    public Strike(int money, int bet, int strike) {
         this.money = money;
         this.bet = bet;
         this.strike = strike;

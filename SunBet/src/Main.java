@@ -4,13 +4,23 @@ public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        int money = 100, bet, lossOrGainCheck, strike = 0;
+        int money = 100, bet = 0, lossOrGainCheck, strike = 0;
+        boolean validAmount;
         Chance chance;
         Strike numStrikes;
 
         while((money > 0 && money <= 1000000) && strike < 3) {
-            System.out.println("You have $" + money + ". How much are you willing to bet?");
-            bet = scan.nextInt();
+            validAmount = false;
+
+            while(!validAmount) {
+                System.out.println("You have $" + money + ". How much are you willing to bet?");
+                try {
+                    bet = Integer.parseInt(scan.nextLine());
+                    validAmount = true;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid amount.");
+                }
+            }
 
             numStrikes = new Strike(money, bet, strike);
 

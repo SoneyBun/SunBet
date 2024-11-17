@@ -9,13 +9,7 @@ public class Strike {
     }
 
     public boolean checkStrike() {
-        if(bet > money) {
-            return true;
-        }
-        else if(bet == 0) {
-            return true;
-        }
-        else if(bet < 0) {
+        if((bet > money) || (bet == 0) || (bet < 0)) {
             return true;
         }
         return false;
@@ -25,10 +19,6 @@ public class Strike {
         if(bet > money) {
             strike++;
             return ("Strike " + strike + ": You cannot bet more than what you have!");
-        }
-        else if(bet < 0.01 && bet > 0) {
-            strike++;
-            return ("Strike " + strike + ": You cannot bet a value that small!");
         }
         else if(bet == 0) {
             strike++;

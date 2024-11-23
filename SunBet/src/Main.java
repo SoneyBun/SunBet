@@ -51,7 +51,6 @@ public class Main {
 
         if(money <= 0) {
             System.out.println("Oh no, you lost all your money. There's always next time!");
-            System.exit(0);
         }
         else if(money >= 1000000) {
             System.out.println("Congrats, you got $" + money + "! Can you get even more?");
@@ -59,5 +58,7 @@ public class Main {
         else if(strike == 3) {
             System.out.println("3 strikes reached, session ended. Try again next time!");
         }
+        
+        System.exit(0);
     }
 }

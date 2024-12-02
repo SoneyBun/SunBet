@@ -27,7 +27,7 @@ public class Main {
             e.printStackTrace();
         }
 
-        System.out.print("Enter currency: ");
+        System.out.print("View currencies at https://bit.ly/SunBetCurrencies\nEnter currency: ");
         String nameCurrency = scan.nextLine();
 
         typeOfMoney = new Currency(nameCurrency);

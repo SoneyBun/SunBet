@@ -15,15 +15,15 @@ public class Strike {
     public String toString() {
         if(bet > money) {
             strike++;
-            return ("Strike " + strike + ": You cannot bet more than what you have!");
+            return ("Strike " + strike + ": You cannot bet more than what you have!\nReport any problems at https://bit.ly/SunCode");
         }
         else if(bet == 0) {
             strike++;
-            return ("Strike " + strike + ": You cannot bet a value of zero!");
+            return ("Strike " + strike + ": You cannot bet a value of zero!\nReport any problems at https://bit.ly/SunCode");
         }
         else if(bet < 0) {
             strike++;
-            return ("Strike " + strike + ": You cannot bet a negative value!");
+            return ("Strike " + strike + ": You cannot bet a negative value!\nReport any problems at https://bit.ly/SunCode");
         }
         return "";
     }

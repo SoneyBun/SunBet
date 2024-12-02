@@ -1,19 +1,46 @@
+import java.awt.Desktop;
+import java.net.URI;
 import java.util.Scanner;
+@SuppressWarnings("all")
 
 public class Main {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
+        Currency typeOfMoney;
         int money = 100, bet = 0, lossOrGainCheck, strike = 0;
         boolean validAmount;
         Chance chance;
         Strike numStrikes;
 
+        try {
+            if(Desktop.isDesktopSupported()) {
+                Desktop desktop = Desktop.getDesktop();
+                URI uri = new URI("https://bit.ly/SunBetCurrencies");
+                desktop.browse(uri);
+            }
+            else {
+                System.out.println("Desktop is not supported on this system.");
+            }
+        }
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+
+        System.out.print("Enter currency: ");
+        String nameCurrency = scan.nextLine();
+
+        typeOfMoney = new Currency(nameCurrency);
+        String currencySymbol = typeOfMoney.getCurrencyType();
+        String currencyName = typeOfMoney.getCurrencyName();
+        String plural = typeOfMoney.getPlural();;
+
+        System.out.print("\n");
         while((money > 0 && money <= 1000000) && strike < 3) {
             validAmount = false;
 
             while(!validAmount) {
-                System.out.println("You have $" + money + ". How much are you willing to bet?");
+                System.out.println("You have " + currencySymbol + money + " " + currencyName + plural + ". How much are you willing to bet?");
                 try {
                     bet = Integer.parseInt(scan.nextLine());
                     validAmount = true;
@@ -34,10 +61,10 @@ public class Main {
                 money += chance.betMoney();
 
                 if(money > lossOrGainCheck) {
-                    System.out.println("\nCongrats, you earned $" + bet + "!");
+                    System.out.println("\nCongrats, you earned " + currencySymbol + bet + "!");
                 }
                 else if(money < lossOrGainCheck) {
-                    System.out.println("\nUh oh, you lost $" + bet + "!");
+                    System.out.println("\nUh oh, you lost " + currencySymbol + bet + "!");
                 }
                 else {
                     System.out.println("\nYour bet got pushed!");
@@ -53,12 +80,12 @@ public class Main {
             System.out.println("Oh no, you lost all your money. There's always next time!");
         }
         else if(money >= 1000000) {
-            System.out.println("Congrats, you got $" + money + "! Can you get even more?");
+            System.out.println("Congrats, you got " + currencySymbol + money + "! Can you get even more?");
         }
         else if(strike == 3) {
             System.out.println("3 strikes reached, session ended. Try again next time!");
         }
-        
+
         System.exit(0);
     }
 }

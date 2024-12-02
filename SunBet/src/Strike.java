@@ -9,10 +9,7 @@ public class Strike {
     }
 
     public boolean checkStrike() {
-        if((bet > money) || (bet == 0) || (bet < 0)) {
-            return true;
-        }
-        return false;
+        return bet > money || bet <= 0;
     }
 
     public String toString() {

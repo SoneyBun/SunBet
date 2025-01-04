@@ -10,24 +10,24 @@ If a currency is not valid, it will give you ¤100 of whatever you said.
 
 ## What is the math behind it?
 
-A random number is generated between 0-6.
-- 0-2 Gain
-- 3-5 Loss
-- 6 Push
-
-```
-public int betMoney() {
-        int chance = (int) (Math.random() * 7);
-
-        if(chance <= 2) {
-            return bet;
-        }
-        else if(chance <= 5) {
-            return (bet * -1);
-        }
-        return 0;
-    }
-```
+There are 4 gamemodes you can bet in
+- Dice Roll (3x bet)
+  - Generates a random number 1-6.
+- Coin Flip (1x bet)
+  - Generates a random number 0-1.
+    - True = 0
+    - False = 1
+- Wheel Spin (2x bet)
+  - Generates a random number 0-3.
+    - Red = 0
+    - Green = 1
+    - Blue = 2
+    - Yellow = 3
+- Classic Bet (3x bet)
+  - Generates a random number 0-6.
+    - Gain = 0-2
+    - Loss = 3-5
+    - Push = 6
 
 ## CodeHS Variant
 

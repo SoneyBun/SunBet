@@ -1,4 +1,7 @@
+import java.awt.Desktop;
+import java.net.URI;
 import java.util.Scanner;
+import java.lang.Math;
 @SuppressWarnings("all")
 
 public class Main {
@@ -6,7 +9,7 @@ public class Main {
         Scanner scan = new Scanner(System.in);
 
         Currency typeOfMoney;
-        int money = 100, bet = 0, lossOrGainCheck, strike = 0;
+        int money = 100, bet = 0, lossOrGainCheck, strike = 0, gain = 0;
         boolean validAmount;
         Chance chance;
         Strike numStrikes;
@@ -40,15 +43,17 @@ public class Main {
                     System.out.println("Betting all of your money is risky!");
                 }
                 chance = new Chance(bet);
+                chance.prompt();
 
                 lossOrGainCheck = money;
                 money += chance.betMoney();
+                gain = Math.abs(money - lossOrGainCheck);
 
                 if(money > lossOrGainCheck) {
-                    System.out.println("\nCongrats, you earned " + currencySymbol + bet + "!");
+                    System.out.println("\nCongrats, you earned " + currencySymbol + gain + "!");
                 }
                 else if(money < lossOrGainCheck) {
-                    System.out.println("\nUh oh, you lost " + currencySymbol + bet + "!");
+                    System.out.println("\nUh oh, you lost " + currencySymbol + gain + "!");
                 }
                 else {
                     System.out.println("\nYour bet got pushed!");
